@@ -1,17 +1,22 @@
 import "./style.css";
 import headerBG from "./assets/images/Enchiladas.jpg";
+import renderContact from "./pages/Contact";
 
 const loadPage = () => {
   const content = document.querySelector("#content");
   const main = document.createElement("main");
   main.classList.add("main");
 
-  const createHeading = () => {
+  const createHeader = () => {
     const header = document.createElement("section");
     const title = document.createElement("h1");
+    const headerImg = new Image();
     content.appendChild(header);
     header.classList.add("header");
     header.appendChild(title);
+    headerImg.src = headerBG;
+    header.appendChild(headerImg);
+    title.textContent = `Zumayas Mexican Cafe`;
   };
 
   const createNav = () => {
@@ -20,6 +25,9 @@ const loadPage = () => {
     const menuBtn = document.createElement("button");
     const contactBtn = document.createElement("button");
     content.appendChild(nav);
+    homeBtn.textContent = "Home";
+    menuBtn.textContent = "Menu";
+    contactBtn.textContent = "Contact";
     nav.appendChild(homeBtn);
     nav.appendChild(menuBtn);
     nav.appendChild(contactBtn);
@@ -31,10 +39,11 @@ const loadPage = () => {
     content.appendChild(footer);
   };
 
-  createHeading();
+  createHeader();
   createNav();
   content.appendChild(main);
   createFooter();
+  renderContact(main);
 };
 
 export default loadPage;
