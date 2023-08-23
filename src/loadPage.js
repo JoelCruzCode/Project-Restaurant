@@ -1,5 +1,7 @@
 import "./style.css";
 import headerBG from "./assets/images/Enchiladas.jpg";
+import renderHome from "./pages/home";
+import renderMenu from "./pages/menu";
 import renderContact from "./pages/Contact";
 
 const loadPage = () => {
@@ -31,6 +33,8 @@ const loadPage = () => {
     nav.appendChild(homeBtn);
     nav.appendChild(menuBtn);
     nav.appendChild(contactBtn);
+
+    return { homeBtn, menuBtn, contactBtn };
   };
 
   const createFooter = () => {
@@ -40,10 +44,23 @@ const loadPage = () => {
   };
 
   createHeader();
-  createNav();
+  const nav = createNav();
   content.appendChild(main);
   createFooter();
-  renderContact(main);
+  renderHome(main);
+
+  // Event Listeners
+  nav.homeBtn.addEventListener("click", function () {
+    renderHome(main);
+  });
+
+  nav.menuBtn.addEventListener("click", function () {
+    renderMenu(main);
+  });
+
+  nav.contactBtn.addEventListener("click", function () {
+    renderContact(main);
+  });
 };
 
 export default loadPage;
