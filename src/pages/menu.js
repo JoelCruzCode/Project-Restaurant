@@ -38,7 +38,7 @@ const renderMenu = (parent) => {
     const itemTitle = createElement("h4", title, ".item-title");
     const itemPrice = createElement("h4", price, ".item-price");
 
-    const itemInfo = createElement("p", info, ".item-description");
+    const itemInfo = createElement("p", info, ".item-info");
     appendChildren(menuHeading, [itemTitle, itemPrice]);
     appendChildren(menuItem, [menuHeading, itemInfo]);
     return menuItem;
