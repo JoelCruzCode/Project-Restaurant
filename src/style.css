@@ -45,6 +45,7 @@ button {
   border-radius: 12px;
 }
 
-/* footer {
-  align-self: center;
-} */
+.menu-heading {
+  display: flex;
+  justify-content: space-between;
+}
