@@ -45,6 +45,16 @@ button {
   border-radius: 12px;
 }
 
+.main {
+  background-color: blueviolet;
+}
+
+.section-title {
+  text-align: center;
+}
+.container {
+  display: flex;
+}
 .menu-heading {
   display: flex;
   justify-content: space-between;
