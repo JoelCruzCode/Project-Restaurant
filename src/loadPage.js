@@ -1,5 +1,5 @@
 import "./style.css";
-import headerBG from "./assets/images/Enchiladas.jpg";
+import headerBG from "./assets/images/header.webp";
 import renderHome from "./pages/home";
 import renderMenu from "./pages/menu";
 import renderContact from "./pages/Contact";
