@@ -1,18 +1,18 @@
 import { createElement, appendChildren } from "./functions";
-
+import { menu } from "./library";
 const renderMenu = (parent) => {
   parent.textContent = ``;
-  const menu = createElement("div", "", ".menu");
+  const menuElement = createElement("div", "", ".menu");
   const sectionTitle = createElement("h2", "Menus", ".section-title");
   const menuNav = createElement("div", "", ".menu-nav");
   const breakFastBtn = createElement("button", "Breakfast", ".menu-btn");
-  const lunchBtn = createElement("button", "Lunch", ".menu-btn");
-  const dinnerBtn = createElement("button", "Dinner", ".menu-btn");
-  appendChildren(menuNav, [breakFastBtn, lunchBtn, dinnerBtn]);
-  appendChildren(parent, [sectionTitle, menuNav, menu]);
-  parent.appendChild(menu);
+  const lunchBtn = createElement("button", "Lunch/Dinner", ".menu-btn");
+  const drinksBtn = createElement("button", "Drinks", ".menu-btn");
+  appendChildren(menuNav, [breakFastBtn, lunchBtn, drinksBtn]);
+  appendChildren(parent, [sectionTitle, menuNav, menuElement]);
+  parent.appendChild(menuElement);
   // Will add logic to render a certain menu depending on time of day later
-  renderBreakfast(menu);
+  renderBreakfast(menuElement);
 
   function renderBreakfast(parent) {
     const sectionTitle = createElement("h3", "Breakfast", ".subsection-title");
@@ -47,21 +47,21 @@ const renderMenu = (parent) => {
   }
 
   // used to render food from a library, should add getters and setters and remove direct accessor property
-  function renderFood(parent, menu) {
-    const sectionTitle = createElement(
-      "h3",
-      `${menu.name}`,
-      ".subsection-title"
-    );
-    parent.textContent = ``;
-    const menuItems = [];
-    menu.food.forEach((item) => {
-      menuItems.push(
-        createMenuItem(menu.food.title, menu.food.price, menu.food.info)
-      );
-    });
-    appendChildren(parent, [sectionTitle, ...menuItems]);
-  }
+  // function renderFood(parent, menu) {
+  //   const sectionTitle = createElement(
+  //     "h3",
+  //     `${menu.name}`,
+  //     ".subsection-title"
+  //   );
+  //   parent.textContent = ``;
+  //   const menuItems = [];
+  //   menu.food.forEach((item) => {
+  //     menuItems.push(
+  //       createMenuItem(menu.food.title, menu.food.price, menu.food.info)
+  //     );
+  //   });
+  //   appendChildren(parent, [sectionTitle, ...menuItems]);
+  // }
 
   function createMenuItem(title, price, info) {
     const menuItem = createElement("div", "", ".menu-item");
@@ -74,11 +74,34 @@ const renderMenu = (parent) => {
     appendChildren(menuItem, [menuHeading, itemInfo]);
     return menuItem;
   }
+  //////////////////////////////
 
+  function renderFood(parent, menu) {
+    // do i want to catogrize my menu library by subtypes
+    const menuItems = [];
+    const sectionTitle = createElement(
+      "h3",
+      `${menu[0].getType()}`,
+      ".subsection-title"
+    );
+    parent.textContent = ``;
+
+    menu.forEach((item) => {
+      menuItems.push(
+        createMenuItem(item.getName(), item.getPrice(), item.getInfo())
+      );
+    });
+    appendChildren(parent, [sectionTitle, ...menuItems]);
+  }
   // Event Listeners
 
   breakFastBtn.addEventListener("click", function () {
-    renderBreakfast(menu);
+    renderBreakfast(menuElement);
+  });
+
+  lunchBtn.addEventListener("click", function () {
+    console.log(menu.getMenu());
+    renderFood(menuElement, menu.getMenu());
   });
 };
 
