@@ -46,23 +46,6 @@ const renderMenu = (parent) => {
     appendChildren(parent, [sectionTitle, ...menuItems]);
   }
 
-  // used to render food from a library, should add getters and setters and remove direct accessor property
-  // function renderFood(parent, menu) {
-  //   const sectionTitle = createElement(
-  //     "h3",
-  //     `${menu.name}`,
-  //     ".subsection-title"
-  //   );
-  //   parent.textContent = ``;
-  //   const menuItems = [];
-  //   menu.food.forEach((item) => {
-  //     menuItems.push(
-  //       createMenuItem(menu.food.title, menu.food.price, menu.food.info)
-  //     );
-  //   });
-  //   appendChildren(parent, [sectionTitle, ...menuItems]);
-  // }
-
   function createMenuItem(title, price, info) {
     const menuItem = createElement("div", "", ".menu-item");
     const menuHeading = createElement("div", "", ".menu-heading");
@@ -75,7 +58,7 @@ const renderMenu = (parent) => {
     return menuItem;
   }
   //////////////////////////////
-
+  // used to render food from a library, should add getters and setters and remove direct accessor property
   function renderFood(parent, menu) {
     // do i want to catogrize my menu library by subtypes
     const menuItems = [];
