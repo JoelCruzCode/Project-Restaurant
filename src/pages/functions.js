@@ -28,7 +28,6 @@ const createField = (type, id, name, placeholder) => {
   return field;
 };
 
-//Might remove and import into contact module since this function is very specific and only called once
 /** Creates a form with a submit button by utilizing createField function */
 const createForm = () => {
   const form = document.createElement("form");
@@ -46,6 +45,10 @@ const createForm = () => {
   const submitBtn = createElement("button", "Send", "");
   const fields = [field1, field2, field3, field4, submitBtn];
   appendChildren(form, fields);
+
+  submitBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+  });
   return form;
 };
 
