@@ -11,6 +11,7 @@ const loadPage = () => {
 
   const createHeader = () => {
     const header = document.createElement("section");
+    header.classList.add("container");
     const title = document.createElement("h1");
     const headerImg = new Image();
     content.appendChild(header);
@@ -23,6 +24,7 @@ const loadPage = () => {
 
   const createNav = () => {
     const nav = document.createElement("nav");
+    nav.classList.add("container");
     const homeBtn = document.createElement("button");
     const menuBtn = document.createElement("button");
     const contactBtn = document.createElement("button");

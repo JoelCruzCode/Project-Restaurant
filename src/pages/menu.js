@@ -3,8 +3,11 @@ import { menu } from "./library";
 const renderMenu = (parent) => {
   parent.textContent = ``;
   const menuElement = createElement("div", "", ".menu");
+  menuElement.classList.add("container");
   const sectionTitle = createElement("h2", "Menus", ".section-title");
+  sectionTitle.classList.add("container");
   const menuNav = createElement("div", "", ".menu-nav");
+  menuNav.classList.add("container");
   const breakFastBtn = createElement("button", "Breakfast", ".menu-btn");
   const lunchBtn = createElement("button", "Lunch/Dinner", ".menu-btn");
   const drinksBtn = createElement("button", "Drinks", ".menu-btn");

@@ -7,9 +7,9 @@ import catering from "../assets/images/catering.webp";
 const renderHome = (parent) => {
   parent.textContent = ``;
   const sectionTitle = createElement("h2", "About Us", ".section-title");
-
+  sectionTitle.classList.add("container");
   const aboutContainer = createElement("div", "", ".home-container");
-
+  aboutContainer.classList.add("container");
   const about1 = createAboutSection(
     "Our Chef and Staff",
     "Our staff offers an amazing array of home -cooked meals as well \
@@ -37,6 +37,7 @@ const renderHome = (parent) => {
 
   function createAboutSection(title, info, img) {
     const aboutUs = createElement("div", "", ".subcontainer");
+    // aboutUs.classList.add("container");
     const aboutTitle = createElement("h4", title, ".item-title");
     const aboutInfo = createElement("p", info, ".item-info");
     const aboutImg = new Image();
